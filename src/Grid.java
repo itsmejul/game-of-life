@@ -12,4 +12,19 @@ public class Grid {
     boolean getField(int x, int y){
         return fields[y][x];
     }
+
+    void printGrid(){
+        String s = "";
+        for(boolean[] line : fields){
+            for(boolean field : line){
+                if(field){
+                    s += "x";
+                } else {
+                    s += "o";
+                }
+            }
+            s+="\n";
+        }
+        System.out.println(s);
+    }
 }
