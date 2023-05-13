@@ -1,6 +1,9 @@
+import java.util.Random;
+
 public class Grid {
     boolean[][] fields;
-
+    Random rand = new Random();
+    
     Grid(int fieldSize){
         fields = new boolean[fieldSize][fieldSize];
     }
@@ -11,6 +14,19 @@ public class Grid {
     
     boolean getField(int x, int y){
         return fields[y][x];
+    }
+
+    void initializeGridRandom(int startPercentage){
+        for(boolean[] line : fields){
+            for(boolean field : line){
+                int randomInt = rand.nextInt(100);
+                if(randomInt < startPercentage){
+                    field = true;
+                } else {
+                    field = false;
+                }
+            }
+        }
     }
 
     void printGrid(){
