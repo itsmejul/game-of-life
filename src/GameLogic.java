@@ -1,11 +1,11 @@
 public class GameLogic {
-    //params
+    // params
     private boolean isCyclic;
     private int fieldSize;
     private int startPercentage;
     private Grid grid;
 
-    GameLogic(boolean isCyclic, int fieldSize, int startPercentage){
+    GameLogic(boolean isCyclic, int fieldSize, int startPercentage) {
         this.isCyclic = isCyclic;
         this.fieldSize = fieldSize;
         this.startPercentage = startPercentage;
