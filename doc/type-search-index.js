@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"<Unnamed>","l":"GameLogic"},{"p":"<Unnamed>","l":"Grid"},{"p":"<Unnamed>","l":"Main"},{"p":"de.oop2023.util","l":"UserInterface"},{"p":"de.oop2023.util","l":"UserInterface.UserInterfaceException"}];updateSearchResults();
