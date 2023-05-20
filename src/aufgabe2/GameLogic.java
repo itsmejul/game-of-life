@@ -1,3 +1,5 @@
+package aufgabe2;
+
 import de.oop2023.util.*;
 
 /**

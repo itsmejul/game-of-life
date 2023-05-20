@@ -1,3 +1,5 @@
+package aufgabe2;
+
 import java.io.PrintWriter;
 import java.util.Random;
 import java.util.ArrayList;
