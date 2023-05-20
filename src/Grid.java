@@ -9,8 +9,14 @@ import java.util.List;
  */
 public class Grid {
     // private boolean[][] fields;
+    /**
+     * 2d-Liste, welche den Zustand jedes Feldes an den Koordinaten speichert
+     */
     private List<List<Boolean>> fields;
 
+    /**
+     * Ein Random-Objekt, um die zufaelligen Belegungen zu generieren
+     */
     Random rand = new Random();
 
     /**

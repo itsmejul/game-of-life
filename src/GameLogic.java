@@ -7,9 +7,21 @@ import de.oop2023.util.*;
  */
 public class GameLogic {
     // params
+    /**
+     * Wahr, wenn die Feldraender zyklisch sind.
+     */
     private boolean isCyclic;
+    /**
+     * Die Seitenlaenge des Feldes
+     */
     private int fieldSize;
+    /**
+     * Die Wahrscheinlichkeit, dass ein Feld am Anfang belegt wird
+     */
     private int startPercentage;
+    /**
+     * Das Grid-objekt, welches den aktuellen Feldzustand speichert
+     */
     private Grid grid;
 
     /**
