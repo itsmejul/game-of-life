@@ -1,6 +1,7 @@
 package aufgabe2;
 
 import de.oop2023.util.*;
+import javax.swing.Timer;
 
 /**
  * GameLogic enthaelt die gesamte Logik fuer ein Spiel und simuliert dieses
@@ -27,6 +28,11 @@ public class GameLogic {
     private Grid grid;
 
     /**
+     * Das GUI-Objekt zur Anzeige des Spielfelds
+     */
+    private GameOfLifeGUI gui;
+
+    /**
      * Konstruktor erstellt ein neues GameLogic-Objekt
      * 
      * @param isCyclic        gibt an, ob die Spielraender zyklisch sind
@@ -41,37 +47,22 @@ public class GameLogic {
 
         grid = new Grid(fieldSize);
         grid.initializeGridRandom(startPercentage);
-        grid.printGrid();
-
+        gui = new GameOfLifeGUI(fieldSize);
+        gui.updateGrid(grid);
     }
 
     /**
      * Die Hauptspielschleife, die jede einzelne Runde nacheinander simuliert
      */
-
     void runGameLoop() {
-        while (true) {
+        Timer timer = new Timer(100, e -> {
             if (grid.isEmpty()) {
                 System.exit(0);
             }
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
             updateGrid();
-            grid.printGrid();
-            /*
-             * String newRound = UserInterface.in.requestChoiceName("Noch eine Runde?", "y",
-             * "n");
-             * if (newRound == "n") {
-             * System.exit(0);
-             * }
-             * updateGrid();
-             * grid.printGrid();
-             */
-        }
-
+            gui.updateGrid(grid);
+        });
+        timer.start();
     }
 
     /**
@@ -131,7 +122,5 @@ public class GameLogic {
             }
         }
         return activeNeighbors;
-
     }
-
 }

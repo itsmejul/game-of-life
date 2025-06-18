@@ -122,9 +122,15 @@ public class Grid {
         for (List<Boolean> line : fields) {
             for (boolean field : line) {
                 if (field) {
-                    s += "\u001b[0;32m\u001b[40m\u2b1b\u001B[0m";
+                    //s += "\u001b[0;32m\u001b[40m\u2b1b\u001B[0m";
+                    //s += "\u001b[0;32m\u001b[40m \u001B[0m";
+                    //s += "\u001b[42m\u2588\u001b[0m";
+                    s += "\u001b[42m \u001b[0m";
                 } else {
-                    s += "\u001b[40m\u2b1b\u001B[0m";
+                    //s += "\u001b[40m\u2b1b\u001B[0m";
+                    //s += "\u001b[40m\u2588\u001b[0m";
+                    s += "\u001b[40m \u001b[0m";
+;
                 }
             }
             s += "\n";
