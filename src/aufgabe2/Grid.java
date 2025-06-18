@@ -6,28 +6,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Grid ist ein Spielfeld, welches speichert, welche Felder aktuell aktiv sind
+ * Grid is used to store the state of all fields, which are currently alive or dead
  *
  */
 public class Grid {
     // private boolean[][] fields;
     /**
-     * 2d-Liste, welche den Zustand jedes Feldes an den Koordinaten speichert
+     * 2d-list, saves the state of every field at the coordinates
      */
     private List<List<Boolean>> fields;
 
     /**
-     * Ein Random-Objekt, um die zufaelligen Belegungen zu generieren
+     * Random object is used to create random alive coordinates at the start
      */
     Random rand = new Random();
 
     /**
-     * Konstruktor erstellt ein neues Grid mit der uebergebenen Feldgroesse
+     * Constructor creates a new Grid with the specified side length
      * 
-     * @param fieldSize Die Feldgroesse
+     * @param fieldSize the length of one side
      */
     Grid(int fieldSize) {
-        // fields = new boolean[fieldSize][fieldSize];
         fields = new ArrayList<List<Boolean>>();
         for (int i = 0; i < fieldSize; i++) {
             fields.add(new ArrayList<Boolean>());
@@ -38,60 +37,43 @@ public class Grid {
     }
 
     /**
-     * Setzt ein Feld auf einen neuen Wert
+     * Update a field to a new value
      * 
-     * @param newValue der neue Wert des Feldes
-     * @param x        der x-Wert des Feldes
-     * @param y        der y-Wert des Feldes
+     * @param newValue the new value of the field
+     * @param x        x-coordinate of the field
+     * @param y        y-coordinate of the field
      */
     void setField(boolean newValue, int x, int y) {
         fields.get(y).set(x, newValue);
-        // fields[y][x] = newValue;
     }
 
     /**
-     * gibt den Status eines Feldes zurueck
+     * Get the current state of a field
      * 
-     * @param x der x-Wert des Feldes
-     * @param y der y-Wert des Feldes
-     * @return der Wert des uebergebenen Feldes
+     * @param x x-coordinate of the field
+     * @param y y-coordinate of the field
+     * @return current state of the field
      */
 
     boolean getField(int x, int y) {
         return fields.get(y).get(x);
-        // return fields[y][x];
     }
 
     /**
-     * initialisiert das Feld mit zufaelligen Felder mit der angegebenen
-     * Wahrscheinlichkeit
+     * Initialize the grid randomly based on the start percentage
      * 
-     * @param startPercentage die Wahrscheinlichkeit, mit der ein Feld belegt wird
+     * @param startPercentage probability, that a field is alive at the start
      */
     void initializeGridRandom(int startPercentage) {
-        /*
-         * for (int y = 0; y < fields.length; y++) {
-         * for (int x = 0; x < fields[y].length; x++) {
-         * int randomInt = rand.nextInt(100);
-         * 
-         * if (randomInt < startPercentage) {
-         * fields[y][x] = true;
-         * } else {
-         * fields[y][x] = false;
-         * }
-         * }
-         * }
-         */
+
         for (int y = 0; y < fields.size(); y++) {
             for (int x = 0; x < fields.get(y).size(); x++) {
                 int randomInt = rand.nextInt(100);
 
                 if (randomInt < startPercentage) {
-                    // fields[y][x] = true;
                     setField(true, x, y);
                 } else {
                     setField(false, x, y);
-                    // fields[y][x] = false;
                 }
             }
         }
@@ -99,36 +81,16 @@ public class Grid {
     }
 
     /**
-     * gibt das Feld in der Konsole mit schoenen Farben aus
+     * Prints the Grid to console (not used anymore)
      */
     void printGrid() {
-        /*
-         * String s = "";
-         * PrintWriter printWriter = new PrintWriter(System.out, true);
-         * for (boolean[] line : fields) {
-         * for (boolean field : line) {
-         * if (field) {
-         * s += "\u001b[0;32m\u001b[40m\u2b1b\u001B[0m";
-         * } else {
-         * s += "\u001b[40m\u2b1b\u001B[0m";
-         * }
-         * }
-         * s += "\n";
-         * }
-         * printWriter.println(s);
-         */
         String s = "";
         PrintWriter printWriter = new PrintWriter(System.out, true);
         for (List<Boolean> line : fields) {
             for (boolean field : line) {
                 if (field) {
-                    //s += "\u001b[0;32m\u001b[40m\u2b1b\u001B[0m";
-                    //s += "\u001b[0;32m\u001b[40m \u001B[0m";
-                    //s += "\u001b[42m\u2588\u001b[0m";
                     s += "\u001b[42m \u001b[0m";
                 } else {
-                    //s += "\u001b[40m\u2b1b\u001B[0m";
-                    //s += "\u001b[40m\u2588\u001b[0m";
                     s += "\u001b[40m \u001b[0m";
 ;
                 }
@@ -139,23 +101,11 @@ public class Grid {
     }
 
     /**
-     * Schaut, ob das Feld leer ist
+     * Check if a grid is completely empty
      * 
-     * @return den Leerstatus des Feldes
+     * @return emptiness of the grid
      */
     boolean isEmpty() {
-        /*
-         * boolean empty = true;
-         * for (boolean[] line : fields) {
-         * for (boolean field : line) {
-         * if (field) {
-         * empty = false;
-         * }
-         * }
-         * 
-         * }
-         * return empty;
-         */
         boolean empty = true;
         for (List<Boolean> line : fields) {
             for (boolean field : line) {
