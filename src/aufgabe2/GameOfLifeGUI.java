@@ -4,16 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * GameOfLifeGUI zeigt das Spielfeld in einer GUI mit Swing
+ * GameOfLifeGUI uses Swing to display the grid
  */
 public class GameOfLifeGUI extends JFrame {
     private final JPanel[][] cells;
     private final int size;
 
     /**
-     * Erstellt ein neues GUI-Fenster mit gegebener Feldgroesse
+     * Create GUI window with the specified side length
      * 
-     * @param size die Seitenlaenge des Spielfeldes
+     * @param size side length of the grid
      */
     public GameOfLifeGUI(int size) {
         this.size = size;
@@ -36,9 +36,9 @@ public class GameOfLifeGUI extends JFrame {
     }
 
     /**
-     * Aktualisiert das GUI-Feld basierend auf dem Zustand des Grids
+     * Update GUI grid bsaed on grid state
      * 
-     * @param grid das Grid-Objekt mit aktuellem Zustand
+     * @param grid the grid instance 
      */
     public void updateGrid(Grid grid) {
         for (int y = 0; y < size; y++) {

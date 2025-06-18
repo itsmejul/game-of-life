@@ -4,41 +4,38 @@ import utils.*;
 import javax.swing.Timer;
 
 /**
- * GameLogic enthaelt die gesamte Logik fuer ein Spiel und simuliert dieses
- * Spiel
+ * GameLogic contains the logic to simulate the game
  *
  */
 public class GameLogic {
-    // params
     /**
-     * Wahr, wenn die Feldraender zyklisch sind.
+     * True, if grid edges behave cyclical
      */
     private boolean isCyclic;
     /**
-     * Die Seitenlaenge des Feldes
+     * side length of the grid
      */
     private int fieldSize;
     /**
-     * Die Wahrscheinlichkeit, dass ein Feld am Anfang belegt wird
+     * probability that a given field is alive at the start
      */
     private int startPercentage;
     /**
-     * Das Grid-objekt, welches den aktuellen Feldzustand speichert
+     * The grid object where the current state is saved
      */
     private Grid grid;
 
     /**
-     * Das GUI-Objekt zur Anzeige des Spielfelds
+     * The GUI object to display the Grid
      */
     private GameOfLifeGUI gui;
 
     /**
-     * Konstruktor erstellt ein neues GameLogic-Objekt
+     * Constructor
      * 
-     * @param isCyclic        gibt an, ob die Spielraender zyklisch sind
-     * @param fieldSize       die Seitenlaenge des Spielfeldes
-     * @param startPercentage die Wahrscheinlichkeit, dass ein am Anfang Feld belegt
-     *                        wird
+     * @param isCyclic        if true, the grid edges behave cyclical
+     * @param fieldSize       side length of the grid
+     * @param startPercentage probability that a given field is alive at the start
      */
     GameLogic(boolean isCyclic, int fieldSize, int startPercentage) {
         this.isCyclic = isCyclic;
@@ -52,7 +49,7 @@ public class GameLogic {
     }
 
     /**
-     * Die Hauptspielschleife, die jede einzelne Runde nacheinander simuliert
+     * DMain game loop simulates each iteration based on the tick speed
      */
     void runGameLoop() {
         Timer timer = new Timer(100, e -> {
@@ -66,7 +63,7 @@ public class GameLogic {
     }
 
     /**
-     * Updatet das Feld nach den Regeln
+     * Update the grid using Game of Life rules
      */
     void updateGrid() {
         Grid newGrid = new Grid(fieldSize);
@@ -86,11 +83,11 @@ public class GameLogic {
     }
 
     /**
-     * Bestimmt die Anzahl der aktiven Nachbarn eines Feldes
+     * Calculate number of alive neighbors of a field
      * 
-     * @param x x-Koordinate des Feldes
-     * @param y y-Koordinate des Feldes
-     * @return die Anzahl der aktiven Nachbarn
+     * @param x x-coordinate of the field
+     * @param y y-coordinate of the field
+     * @return number of alive neighbors
      */
     int getActiveNeighbors(int x, int y) {
         int activeNeighbors = 0;
