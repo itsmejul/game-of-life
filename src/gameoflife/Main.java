@@ -1,4 +1,4 @@
-package aufgabe2;
+package gameoflife;
 
 import utils.UserInterface;
 

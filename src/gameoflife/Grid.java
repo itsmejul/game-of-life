@@ -1,4 +1,4 @@
-package aufgabe2;
+package gameoflife;
 
 import java.io.PrintWriter;
 import java.util.Random;
