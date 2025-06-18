@@ -1,4 +1,4 @@
-package de.oop2023.util;
+package utils;
 
 import java.util.Arrays;
 import java.util.Scanner;

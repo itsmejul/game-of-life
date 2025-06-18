@@ -1,6 +1,6 @@
 package aufgabe2;
 
-import de.oop2023.util.*;
+import utils.*;
 import javax.swing.Timer;
 
 /**
