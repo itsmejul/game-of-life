@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"aufgabe2"},{"l":"de.oop2023.util"}];updateSearchResults();
