@@ -52,7 +52,7 @@ public class GameLogic {
      * DMain game loop simulates each iteration based on the tick speed
      */
     void runGameLoop() {
-        Timer timer = new Timer(100, e -> {
+        Timer timer = new Timer(1000, e -> {
             if (grid.isEmpty()) {
                 System.exit(0);
             }
